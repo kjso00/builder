@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<body>
+<form id="koreanNameForm" onsubmit="return validateForm()">
+    <input type="text" id="koreanName" name="koreanName" placeholder="한글 이름 (3글자)" required>
+    <button type="submit">제출</button>
+    <div id="error-message"></div>
+</form>
+
+<script>
+    function validateForm() {
+        const nameInput = document.getElementById('koreanName');
+        const errorMessage = document.getElementById('error-message');
+        const koreanRegex = /^[가-힣]{3}$/;
+
+        if (koreanRegex.test(nameInput.value)) {
+            errorMessage.textContent = '';
+            return true; // 폼 제출 허용
+        } else {
+            errorMessage.textContent = '정확히 3글자의 한글만 입력해주세요.';
+            return false; // 폼 제출 방지
+        }
+    }
+</script>
+</body>
+</body>
+</html>

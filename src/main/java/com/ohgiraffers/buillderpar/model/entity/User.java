@@ -1,41 +1,52 @@
 package com.ohgiraffers.buillderpar.model.entity;
 
+
 public class User {
 
+    private Long id;
     private String name;
     private String phone;
-    private int age;
-    private String postalCode;
+    private Integer age;
     private String address;
-    private String detailAddress;
 
 
     public User(UserBuilder builder) {
+        this.id = id;
         this.name = name;
         this.phone = phone;
         this.age = age;
-        this.postalCode = postalCode;
         this.address = address;
-        this.detailAddress = detailAddress;
     }
 
-    public static class UserBuilder {
+   public static class UserBuilder {
+
         private String name;
         private String phone;
-        private int age;
-        private String postalCode;
+        private Integer age;
         private String address;
-        private String detailAddress;
+
+        public UserBuilder (String name, String phone) {
+            this.name = name;
+            this.phone = phone;
+        }
+
+        public UserBuilder age(Integer age) {
+            this.age = age;
+            return this;
+        }
+
+        public UserBuilder address(String address) {
+            this.address = address;
+            return this;
+        }
+
+
+        public User build() {
+            return new User(this);
+        }
+
     }
 
-    public UserBuilder name(String name) {
-        this.name = name;
-        return this;
-    }
-    public UserBuilder phone(String phone) {
-        this.phone = phone;
-
-    }
 
 
 
